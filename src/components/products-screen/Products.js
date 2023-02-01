@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Container, Row, Card } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 
 const productsArr = [
   {
@@ -29,61 +29,29 @@ const productsArr = [
 
 const Products = (props) => {
   return (
-    <Container>
+    <Container className="mt-3">
       <Row>
-        <Col xl={"auto"}>
-          <div>
-            <div>
-              <h3>{productsArr[0].title}</h3>
-            </div>
-            <div>
-              <img src={productsArr[0].imageUrl} />
-            </div>
-            <div>
-              <h5>{`$${productsArr[0].price}`}</h5>
-            </div>
-          </div>
+        <Col className="col-4">
+          <h5>{productsArr[0].title}</h5>
+          <img className="img-thumbnail" src={productsArr[0].imageUrl} alt="..."/>
+          <p>{`$${productsArr[0].price}`}</p>
         </Col>
-        <Col>
-          <div>
-            <div>
-              <h3>{productsArr[1].title}</h3>
-            </div>
-            <div>
-              <img src={productsArr[1].imageUrl} />
-            </div>
-            <div>
-              <h5>{`$${productsArr[1].price}`}</h5>
-            </div>
-          </div>
+        <Col className="col-4">
+          <h5>{productsArr[1].title}</h5>
+          <img className="img-thumbnail" src={productsArr[1].imageUrl} alt="..."/>
+          <p>{`$${productsArr[1].price}`}</p>
         </Col>
       </Row>
       <Row>
-        <Col xl={"auto"}>
-          <div>
-            <div>
-              <h3>{productsArr[2].title}</h3>
-            </div>
-            <div>
-              <img src={productsArr[2].imageUrl} />
-            </div>
-            <div>
-              <h5>{`$${productsArr[2].price}`}</h5>
-            </div>
-          </div>
+        <Col className="col-4">
+          <h5>{productsArr[2].title}</h5>
+          <img className="img-thumbnail" src={productsArr[2].imageUrl} alt="..."/>
+          <p>{`$${productsArr[2].price}`}</p>
         </Col>
-        <Col>
-          <div>
-            <div>
-              <h3>{productsArr[3].title}</h3>
-            </div>
-            <div>
-              <img src={productsArr[3].imageUrl} />
-            </div>
-            <div>
-              <h5>{`$${productsArr[2].price}`}</h5>
-            </div>
-          </div>
+        <Col className="col-4">
+          <h5>{productsArr[3].title}</h5>
+          <img className="img-thumbnail" src={productsArr[3].imageUrl} alt="..."/>
+          <p>{`$${productsArr[2].price}`}</p>
         </Col>
       </Row>
     </Container>

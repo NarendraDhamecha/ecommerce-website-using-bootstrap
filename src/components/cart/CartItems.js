@@ -10,7 +10,7 @@ const CartItems = (props) => {
           <li key={item.id} className="list-group-item">
             <Row>
               <Col>
-                <img className="img-thumbnail" src={item.imageUrl} />
+                <img className="img-thumbnail" src={item.imageUrl} alt="..."/>
                 {item.title}
               </Col>
               <Col>{`$${item.price}`}</Col>

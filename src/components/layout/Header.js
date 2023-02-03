@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Button, Container, Nav, Navbar, Row } from "react-bootstrap";
 import classes from './Header.module.css'
 import CartContext from "../store/Cart-contex";
+import { NavLink } from "react-router-dom";
 
 const Header = (props) => {
   const cartCtx = useContext(CartContext);
@@ -15,9 +16,9 @@ const Header = (props) => {
       <Navbar className={classes.navbar} bg="black" variant="dark">
         <Container>
           <Nav>
-            <Nav.Link href="#home">HOME</Nav.Link>
-            <Nav.Link href="#store">STORE</Nav.Link>
-            <Nav.Link href="#about">ABOUT</Nav.Link>
+            <NavLink className="nav-link" to="/home">HOME</NavLink>
+            <NavLink className="nav-link" to="/store">STORE</NavLink>
+            <NavLink className="nav-link" to="/about">ABOUT</NavLink>
           </Nav>
           <Button variant="outline-secondary" onClick={props.onShowCart}>
             <span className={classes.icon}></span>

@@ -1,5 +1,4 @@
 import { Col, Container } from "react-bootstrap";
-import { Fragment } from "react-bootstrap/dist/react-bootstrap";
 import LoremIpsum from "react-lorem-ipsum";
 import classes from "./About.module.css";
 

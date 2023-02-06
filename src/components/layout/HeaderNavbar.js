@@ -18,6 +18,7 @@ const HeaderNavbar = (props) => {
             <NavLink className="nav-link" to="/home">HOME</NavLink>
             <NavLink className="nav-link" to="/store">STORE</NavLink>
             <NavLink className="nav-link" to="/about">ABOUT</NavLink>
+            <NavLink className="nav-link" to="/contact_us">CONTACT US</NavLink>
           </Nav>
           <Button variant="outline-secondary" onClick={props.onShowCart}>
             <span className={classes.icon}></span>

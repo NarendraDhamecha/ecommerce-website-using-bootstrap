@@ -7,6 +7,7 @@ import { Route } from "react-router-dom";
 import About from "../src/pages/About";
 import HeaderNavbar from "./components/layout/HeaderNavbar";
 import Home from "./pages/Home";
+import ContactUs from "./pages/ContactUs";
 
 const App = (props) => {
   const [showCart, setCart] = useState(false);
@@ -22,6 +23,9 @@ const App = (props) => {
   return (
     <CartProvider>
       <HeaderNavbar onShowCart={showCartHandler} />
+      <Route path="/contact_us">
+         <ContactUs/>
+      </Route>
       <Route path="/about">
         <Header />
         <About />

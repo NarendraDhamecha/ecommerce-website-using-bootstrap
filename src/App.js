@@ -9,6 +9,7 @@ import HeaderNavbar from "./components/layout/HeaderNavbar";
 import Home from "./pages/Home";
 import ContactUs from "./pages/ContactUs";
 import ProductDetails from "./pages/ProductDetails";
+import Login from "./pages/Login";
 
 const App = (props) => {
   const [showCart, setCart] = useState(false);
@@ -34,6 +35,9 @@ const App = (props) => {
         </Route>
         <Route path="/home">
           <Home />
+        </Route>
+        <Route path="/login">
+          <Login/>
         </Route>
         <Route path="/store" exact>
           <Header />

@@ -49,10 +49,15 @@ const Login = () => {
 
       const data = await res.json();
       if (res.ok) {
-        authCtx.login(data.idToken);
+        // authCtx.login(data.idToken);
 
-        if (!isLogin) setLogin(true);
-        else history.push("/store");
+        if(!isLogin){
+          setLogin(true)
+        }else{
+          authCtx.login(data.idToken);
+          history.push("/store");
+        }
+    
       } else {
         throw new Error(data.error.message);
       }

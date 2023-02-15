@@ -1,8 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import classes from "./Products.module.css";
 import CartContext from "../store/Cart-contex";
-import { Link } from "react-router-dom";
+import AuthContext from "../store/auth-contex";
 
 const productsArr = [
   {
@@ -40,6 +41,14 @@ const productsArr = [
 
 const Products = (props) => {
   const cartCxt = useContext(CartContext);
+  const authCtx = useContext(AuthContext);
+
+
+  useEffect(() => {
+    fetch(`https://crudcrud.com/api/ab967692f4a1476e81e773c0e49cab63/cart${authCtx.email}`)
+    .then(res =>  res.json())
+    .then(data => cartCxt.updateAfterRefresh(data))
+  },[])
 
   return (
     <Container className={classes.product}>

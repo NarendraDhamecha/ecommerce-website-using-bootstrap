@@ -4,9 +4,11 @@ import { CloseButton, Col, Modal, ModalBody, Row } from "react-bootstrap";
 import ModalOverlay from "../UI/ModalOverlays";
 import classes from "./Cart.module.css";
 import CartContext from "../store/Cart-contex";
+import { useEffect } from "react";
+import AuthContext from "../store/auth-contex";
 
 const Cart = (props) => {
-  const cartCxt = useContext(CartContext);
+  const cartCtx = useContext(CartContext);
 
   return (
     <ModalOverlay>
@@ -21,7 +23,7 @@ const Cart = (props) => {
             <Col>Price</Col>
             <Col>Quantity</Col>
           </Row>
-          <CartItems items={cartCxt.items} />
+          <CartItems items={cartCtx.items} />
         </ModalBody>
       </Modal.Dialog>
     </ModalOverlay>

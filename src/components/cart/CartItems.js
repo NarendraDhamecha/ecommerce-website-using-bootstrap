@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Row, Col, Button } from "react-bootstrap";
+import CartContext from "../store/Cart-contex";
 import classes from "./CartItems.module.css";
 
 const CartItems = (props) => {
+  const cartCtx = useContext(CartContext);
+
   return (
     <ul className={`list-group ${classes.list}`}>
       {props.items.map((item) => {
@@ -16,7 +19,7 @@ const CartItems = (props) => {
               <Col>{`$${item.price}`}</Col>
               <Col>{`x${item.quantity}`}</Col>
               <Col>
-                <Button variant="outline-danger" size="sm">
+                <Button onClick={() => cartCtx.removeItem(item._id)} variant="outline-danger" size="sm">
                   Remove
                 </Button>
               </Col>

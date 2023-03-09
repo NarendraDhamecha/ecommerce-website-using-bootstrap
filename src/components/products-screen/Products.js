@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import classes from "./Products.module.css";
 import CartContext from "../store/Cart-contex";
 import AuthContext from "../store/auth-contex";
+import ItemList from "./ItemList";
 
 const productsArr = [
   {
+    path: "store/p1",
     id: "item_1",
     title: "Colors",
     price: 100,
@@ -15,6 +17,7 @@ const productsArr = [
   },
 
   {
+    path: "store/p2",
     id: "item_2",
     title: "Black and white Colors",
     price: 50,
@@ -23,6 +26,7 @@ const productsArr = [
   },
 
   {
+    path: "store/p3",
     id: "item_3",
     title: "Yellow and Black Colors",
     price: 70,
@@ -31,7 +35,8 @@ const productsArr = [
   },
 
   {
-    id: "item_3",
+    path: "store/p4",
+    id: "item_4",
     title: "Blue Color",
     price: 100,
     quantity: "1",
@@ -43,76 +48,37 @@ const Products = (props) => {
   const cartCxt = useContext(CartContext);
   const authCtx = useContext(AuthContext);
 
-
   useEffect(() => {
-    fetch(`https://crudcrud.com/api/ab967692f4a1476e81e773c0e49cab63/cart${authCtx.email}`)
+    fetch(`https://crudcrud.com/api/c867fdbee8da42c5b19496246130598b/cart${authCtx.email}`)
     .then(res =>  res.json())
     .then(data => cartCxt.updateAfterRefresh(data))
   },[])
 
   return (
-    <Container className={classes.product}>
-      <Row className="mb-5">
-        <Col>
-          <h5>{productsArr[0].title}</h5>
-          <Link to="/store/p1">
-            <img
-              className="img-thumbnail"
-              src={productsArr[0].imageUrl}
-              alt="..."
-            />
-          </Link>
-          <div>{`$${productsArr[0].price}`}</div>
-          <Button onClick={() => cartCxt.addItem(productsArr[0])}>
-            Add To Cart
-          </Button>
-        </Col>
-        <Col>
-          <h5>{productsArr[1].title}</h5>
-          <Link to="store/p2">
-            <img
-              className="img-thumbnail"
-              src={productsArr[1].imageUrl}
-              alt="..."
-            />
-          </Link>
-          <div>{`$${productsArr[1].price}`}</div>
-          <Button onClick={() => cartCxt.addItem(productsArr[1])}>
-            Add To Cart
-          </Button>
-        </Col>
-      </Row>
-      <Row className="mb-5">
-        <Col>
-          <h5>{productsArr[2].title}</h5>
-          <Link to="store/p3">
-            <img
-              className="img-thumbnail"
-              src={productsArr[2].imageUrl}
-              alt="..."
-            />
-          </Link>
-          <div>{`$${productsArr[2].price}`}</div>
-          <Button onClick={() => cartCxt.addItem(productsArr[2])}>
-            Add To Cart
-          </Button>
-        </Col>
-        <Col>
-          <h5>{productsArr[3].title}</h5>
-          <Link to="store/p4">
-            <img
-              className="img-thumbnail"
-              src={productsArr[3].imageUrl}
-              alt="..."
-            />
-          </Link>
-          <div>{`$${productsArr[2].price}`}</div>
-          <Button onClick={() => cartCxt.addItem(productsArr[3])}>
-            Add To Cart
-          </Button>
-        </Col>
-      </Row>
-    </Container>
+    <>
+      <div className={`container-fluid my-4 4 text-center ${classes.product}`}>
+        <div className="row">
+          <div className="col-10 mx-auto">
+            <div className="row">
+              {productsArr.map((item) => {
+                return (
+                  <ItemList
+                    key={item.id}
+                    img={item.imageUrl}
+                    title={item.title}
+                    price={item.price}
+                    onClick={cartCxt.addItem}
+                    id={item.id}
+                    quantity={item.quantity}
+                    path={item.path}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 

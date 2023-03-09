@@ -1,0 +1,11 @@
+.footer {
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-top: 4rem;
+    background-color: rgb(86, 156, 183);
+}
+
+.footer h2 {
+    font-size: 3rem;
+    padding-left: 5rem;
+}

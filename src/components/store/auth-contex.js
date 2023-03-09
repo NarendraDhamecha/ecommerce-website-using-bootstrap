@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 
 const AuthContext = React.createContext({
@@ -11,22 +11,24 @@ const AuthContext = React.createContext({
 
 export const AuthContextProvider = (props) => {
   const initialToken = localStorage.getItem("token");
-  const initialEmail = localStorage.getItem("email")
+  const initialEmail = localStorage.getItem("email");
   const [token, setToken] = useState(initialToken);
   const [email, setEmail] = useState(initialEmail);
+
 
   const isLoggedIn = !!token;
 
   const loginHandler = (token, emailId) => {
     localStorage.setItem("token", token);
     setToken(token);
-    const replacedEmail = emailId.replace(/[^a-zA-Z0-9 ]/g, '')
-    localStorage.setItem("email",replacedEmail)
-    setEmail(replacedEmail)
+    const replacedEmail = emailId.replace(/[^a-zA-Z0-9 ]/g, "");
+    localStorage.setItem("email", replacedEmail);
+    setEmail(replacedEmail);
   };
 
   const logoutHandler = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("email");
     setToken(null);
     setEmail(null);
   };

@@ -1,0 +1,31 @@
+.header {
+   font-family: Georgia, 'Times New Roman', Times, serif;
+   text-align: center;
+   background-color: #777;
+   height: 9rem;
+   color: white;
+   padding-top: 10px;
+}
+
+.header h1 {
+   font-size: 6rem;
+}
+
+.navbar {
+   font-family: Georgia, 'Times New Roman', Times, serif;
+   margin-block-end: 1px;
+}
+
+.icon {
+   width: 1.35rem;
+   height: 1.35rem;
+   margin-right: 0.5rem;
+ }
+ 
+ .badge {
+   background-color: black;
+   padding: 0.25rem 1rem;
+   border-radius: 25px;
+   margin-left: 1rem;
+   font-weight: bold;
+ }

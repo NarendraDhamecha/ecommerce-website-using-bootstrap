@@ -1,0 +1,15 @@
+.about {
+    text-align: justify;
+    margin-top: 3rem;
+    font-size: 1.3rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.about h1 {
+    text-decoration: underline;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    background-color: white;
+    color: rgb(44, 44, 44);
+}

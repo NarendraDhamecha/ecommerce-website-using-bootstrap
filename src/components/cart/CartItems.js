@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Row, Col, Button } from "react-bootstrap";
+import { Row, Col, Button, ListGroup, ListGroupItem } from "react-bootstrap";
 import CartContext from "../store/Cart-contex";
 import classes from "./CartItems.module.css";
 
@@ -7,10 +7,10 @@ const CartItems = (props) => {
   const cartCtx = useContext(CartContext);
 
   return (
-    <ul className={`list-group ${classes.list}`}>
+    <ListGroup variant="flush" className={classes.list}>
       {props.items.map((item) => {
         return (
-          <li key={item.id} className="list-group-item">
+          <ListGroupItem key={item.id}>
             <Row>
               <Col>
                 <img className="img-thumbnail" src={item.imageUrl} alt="..."/>
@@ -24,10 +24,10 @@ const CartItems = (props) => {
                 </Button>
               </Col>
             </Row>
-          </li>
+          </ListGroupItem>
         );
       })}
-    </ul>
+    </ListGroup>
   );
 };
 

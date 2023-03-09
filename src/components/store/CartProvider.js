@@ -29,7 +29,7 @@ const CartProvider = (props) => {
       const existingId = updatedItems[existingIndex]._id;
 
       const res = await fetch(
-        `https://crudcrud.com/api/ab967692f4a1476e81e773c0e49cab63/cart${authCtx.email}/${existingId}`,
+        `https://crudcrud.com/api/c867fdbee8da42c5b19496246130598b/cart${authCtx.email}/${existingId}`,
         {
           headers: { "Content-Type": "application/json" },
           method: "PUT",
@@ -44,12 +44,21 @@ const CartProvider = (props) => {
       );
       updateItems([...updatedItems]);
     } else {
+     
+      const details = {
+        id: item.id,
+        title: item.title,
+        price: item.price,
+        quantity: item.quantity,
+        imageUrl: item.img
+      }
+
       const res = await fetch(
-        `https://crudcrud.com/api/ab967692f4a1476e81e773c0e49cab63/cart${authCtx.email}`,
+        `https://crudcrud.com/api/c867fdbee8da42c5b19496246130598b/cart${authCtx.email}`,
         {
           headers: { "Content-Type": "application/json" },
           method: "POST",
-          body: JSON.stringify(item),
+          body: JSON.stringify(details),
         }
       );
 
@@ -60,7 +69,7 @@ const CartProvider = (props) => {
 
   const removeItemHandler = async (id) => {
     const res = await fetch(
-      `https://crudcrud.com/api/ab967692f4a1476e81e773c0e49cab63/cart${authCtx.email}/${id}`,
+      `https://crudcrud.com/api/c867fdbee8da42c5b19496246130598b/cart${authCtx.email}/${id}`,
       { method: "DELETE" }
     );
     updateItems((prevItems) => {

@@ -1,4 +1,5 @@
 import { useRef, useContext, useState } from "react";
+import classes from './Login.module.css';
 import {
   Button,
   Container,
@@ -66,7 +67,7 @@ const Login = () => {
   };
 
   return (
-    <Container className="text-center">
+    <Container className={classes.login}>
       <header className="mb-4 mt-4">
         <h3>{isLogin ? "Log In" : "Sign Up"}</h3>
       </header>

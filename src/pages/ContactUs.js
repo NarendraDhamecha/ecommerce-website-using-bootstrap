@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import classes from "./ContactUs.module.css";
 
 const {
   Form,
@@ -22,23 +23,31 @@ const ContactUs = () => {
       mobile_no: mobileNoRef.current.value,
     };
 
-    const response = await fetch(
-      "https://ecommerce-website-8dfa0-default-rtdb.firebaseio.com/userDetails.json",
-      {
-        method: "POST",
-        body: JSON.stringify(userDetails),
-        headers: {
-          "content-type": "user-details-app",
-        },
+    try {
+      const response = await fetch(
+        "https://ecommerce-website-8dfa0-default-rtdb.firebaseio.com/userDetails.json",
+        {
+          method: "POST",
+          body: JSON.stringify(userDetails),
+          headers: {
+            "content-type": "user-details-app",
+          },
+        }
+      );
+
+      if (response.ok) {
+        alert("Your details submited successfully");
+      } else {
+        throw new Error("Details not submited please try again");
       }
-    );
-    const data = await response.json();
-    console.log(data);
+    } catch (e) {
+      alert(e);
+    }
   };
 
   return (
-    <Container>
-      <header className="text-center mb-4 mt-4">
+    <Container className={classes.form}>
+      <header className={classes.header}>
         <h2>
           Please fill in the form below and we will contact you very soon.
         </h2>

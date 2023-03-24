@@ -1,14 +1,10 @@
-import { Fragment } from "react";
-import { Row } from "react-bootstrap";
-import classes from "./Header.module.css";
+import "./Header.css";
 
-const Header = (props) => {
+const Header = () => {
   return (
-    <Fragment>
-      <Row className={classes.header}>
-        <h1>The Generics</h1>
-      </Row>
-    </Fragment>
+    <header className="row header">
+      <h1>The Generics</h1>
+    </header>
   );
 };
 

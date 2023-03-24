@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import classes from "./ContactUs.module.css";
+import "./ContactUs.css";
 
 const {
   Form,
@@ -46,8 +46,8 @@ const ContactUs = () => {
   };
 
   return (
-    <Container className={classes.form}>
-      <header className={classes.header}>
+    <Container className="form">
+      <header className="contactheader">
         <h2>
           Please fill in the form below and we will contact you very soon.
         </h2>

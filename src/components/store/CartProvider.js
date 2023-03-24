@@ -5,6 +5,7 @@ import AuthContext from "./auth-contex";
 
 const CartProvider = (props) => {
   const [items, updateItems] = useState([]);
+  const [extraImages, setExtraImages] = useState([]);
   const authCtx = useContext(AuthContext);
 
   const updateItemsOnRefresh = (items) => {
@@ -28,8 +29,8 @@ const CartProvider = (props) => {
 
       const existingId = updatedItems[existingIndex]._id;
 
-      const res = await fetch(
-        `https://crudcrud.com/api/c867fdbee8da42c5b19496246130598b/cart${authCtx.email}/${existingId}`,
+       await fetch(
+        `https://crudcrud.com/api/69738477188d47eb803abc4e0fae3686/cart${authCtx.email}/${existingId}`,
         {
           headers: { "Content-Type": "application/json" },
           method: "PUT",
@@ -54,7 +55,7 @@ const CartProvider = (props) => {
       }
 
       const res = await fetch(
-        `https://crudcrud.com/api/c867fdbee8da42c5b19496246130598b/cart${authCtx.email}`,
+        `https://crudcrud.com/api/69738477188d47eb803abc4e0fae3686/cart${authCtx.email}`,
         {
           headers: { "Content-Type": "application/json" },
           method: "POST",
@@ -68,8 +69,8 @@ const CartProvider = (props) => {
   };
 
   const removeItemHandler = async (id) => {
-    const res = await fetch(
-      `https://crudcrud.com/api/c867fdbee8da42c5b19496246130598b/cart${authCtx.email}/${id}`,
+    await fetch(
+      `https://crudcrud.com/api/69738477188d47eb803abc4e0fae3686/cart${authCtx.email}/${id}`,
       { method: "DELETE" }
     );
     updateItems((prevItems) => {
@@ -81,8 +82,14 @@ const CartProvider = (props) => {
     });
   };
 
+  const addExtraImages = (extraImagesArray) => {
+     setExtraImages(extraImagesArray);
+  }
+
   const cartContex = {
     items: items,
+    extraImages: extraImages,
+    addExtraImage: addExtraImages,
     addItem: addItemHandler,
     removeItem: removeItemHandler,
     updateAfterRefresh: updateItemsOnRefresh,

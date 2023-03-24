@@ -1,14 +1,12 @@
-.header {
-  font-family: Georgia, "Times New Roman", Times, serif;
+.homeheader {
   text-align: center;
   background-color: #777;
-  height: 25rem;
+  box-sizing: border-box;
   color: white;
   margin-block-start: 1px;
 }
 
-.header h1 {
-  padding: 40px;
+.homeheader h1 {
   font-size: 100px;
 }
 
@@ -28,7 +26,7 @@
   cursor: pointer;
   display: block;
   border: 2px solid #56ccf2;
-  border-radius: 50%;
+  border-radius: 55%;
   padding: 15px 20px;
   font-size: 30px;
   font-weight: 200;

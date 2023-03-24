@@ -1,8 +1,8 @@
 .footer {
+    box-sizing: border-box;
     color: white;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    margin-top: 4rem;
     background-color: rgb(86, 156, 183);
+    margin: 3rem 0px -10px;
 }
 
 .footer h2 {

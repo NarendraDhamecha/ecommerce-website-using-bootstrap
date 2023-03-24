@@ -12,6 +12,7 @@ import ProductDetails from "./pages/ProductDetails";
 import Login from "./pages/Login";
 import AuthContext from "./components/store/auth-contex";
 import Footer from "./components/layout/Footer";
+import "./App.css";
 
 const ContactUs = lazy(() => import("./pages/ContactUs"));
 

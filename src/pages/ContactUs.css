@@ -1,13 +1,12 @@
-header {
+.contactheader {
   text-align: center;
-  font-family: Georgia, 'Times New Roman', Times, serif;
   margin-block-start: 1rem;
   margin-block-end: 1rem;
   background: rgb(86, 156, 183);
   color: white;
+  border-radius: 10px;
 }
 
 .form {
     text-align: center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
 }

@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { Row, Col, Button, ListGroup, ListGroupItem } from "react-bootstrap";
 import CartContext from "../store/Cart-contex";
-import classes from "./CartItems.module.css";
+import "./CartItems.css";
 
 const CartItems = (props) => {
   const cartCtx = useContext(CartContext);
 
   return (
-    <ListGroup variant="flush" className={classes.list}>
+    <ListGroup variant="flush" className="list">
       {props.items.map((item) => {
         return (
           <ListGroupItem key={item.id}>

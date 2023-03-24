@@ -1,10 +1,10 @@
 import { Col, Container } from "react-bootstrap";
 import LoremIpsum from "react-lorem-ipsum";
-import classes from "./About.module.css";
+import "./About.css";
 
 const About = () => {
   return (
-      <Container className={classes.about}>
+      <Container className="about">
         <header>
           <h1>About</h1>
         </header>

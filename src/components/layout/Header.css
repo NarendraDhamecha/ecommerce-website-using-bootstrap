@@ -1,18 +1,15 @@
 .header {
-   font-family: Georgia, 'Times New Roman', Times, serif;
    text-align: center;
    background-color: #777;
-   height: 9rem;
+   box-sizing: border-box;
    color: white;
-   padding-top: 10px;
 }
 
 .header h1 {
-   font-size: 6rem;
+   font-size: 100px;
 }
 
 .navbar {
-   font-family: Georgia, 'Times New Roman', Times, serif;
    margin-block-end: 1px;
 }
 

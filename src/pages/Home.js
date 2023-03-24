@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Container, Button, ListGroup, ListGroupItem } from "react-bootstrap";
-import classes from "./Home.module.css";
+import "./Home.css";
 
 const DUMMY_LIST = [
   {
@@ -49,14 +49,14 @@ const Home = () => {
 
   return (
     <Fragment>
-      <header className={classes.header}>
+      <header className="homeheader">
         <h1>The Generics</h1>
-        <button className={classes.latestAlbum}>Get Our Latest Album</button>
-        <button className={classes.playBtn}>►</button>
+        <button className="latestAlbum">Get Our Latest Album</button>
+        <button className="playBtn">►</button>
       </header>
       <Container className="text-center">
-        <h2 className={classes.tours}>Tours</h2>
-        <ListGroup variant="flush" className={classes.list}>
+        <h2 className="tours">Tours</h2>
+        <ListGroup variant="flush" className="list">
           {tourList}
         </ListGroup>
       </Container>

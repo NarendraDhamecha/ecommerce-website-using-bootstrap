@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import CartItems from "./CartItems";
-import { Button, CloseButton, Col, Modal, ModalBody, Row } from "react-bootstrap";
+import { CloseButton, Modal, ModalBody } from "react-bootstrap";
 import ModalOverlay from "../UI/ModalOverlays";
-import classes from "./Cart.module.css";
+import "./Cart.css";
 import CartContext from "../store/Cart-contex";
 
 const Cart = (props) => {
@@ -20,16 +20,16 @@ const Cart = (props) => {
           <CloseButton onClick={props.onCloseCart} />
         </Modal.Header>
         <ModalBody>
-          <Row className={`mb-3 ${classes.cart}`}>
-            <Col>Item</Col>
-            <Col>Price</Col>
-            <Col>Quantity</Col>
-          </Row>
+          <div className="cart">
+            <span className="mx-4">Item</span>
+            <span className="mx-5">Price</span>
+            <span className="ms-1">Quantity</span>
+          </div>
           <CartItems items={cartCtx.items} />
-          <Row className={`mt-3 ${classes.total_amount}`}>
-            <Col className="offset-5">{`Total: $${totalAmount}`}</Col>
-            <Col><Button variant="outline-light" size="sm">Order</Button></Col>
-          </Row>
+          <div className="total_amount">
+            <span>{`Total: $${totalAmount}`}</span>
+            <span><button className="btn btn-success btn-sm">Order</button></span>
+          </div>
         </ModalBody>
       </Modal.Dialog>
     </ModalOverlay>

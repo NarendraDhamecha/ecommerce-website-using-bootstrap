@@ -1,0 +1,26 @@
+.products {
+ 
+}
+
+.products img {
+  width: 250px;
+  height: 250px;
+}
+
+.products ul {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.products li {
+    margin: 10px;
+}
+
+.products li :hover {
+  box-shadow: 3px 3px 6px rgb(182, 205, 213);
+  cursor:pointer;
+}

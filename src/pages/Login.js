@@ -1,13 +1,5 @@
 import { useRef, useContext, useState } from "react";
-import classes from './Login.module.css';
-import {
-  Button,
-  Container,
-  Form,
-  FormControl,
-  FormGroup,
-  FormLabel,
-} from "react-bootstrap";
+import "./Login.css";
 import { useHistory } from "react-router-dom";
 import AuthContext from "../components/store/auth-contex";
 
@@ -50,14 +42,12 @@ const Login = () => {
 
       const data = await res.json();
       if (res.ok) {
-         
-        if(!isLogin){
-          setLogin(true)
-        }else{
+        if (!isLogin) {
+          setLogin(true);
+        } else {
           authCtx.login(data.idToken, data.email);
           history.push("/store");
         }
-    
       } else {
         throw new Error(data.error.message);
       }
@@ -67,34 +57,49 @@ const Login = () => {
   };
 
   return (
-    <Container className={classes.login}>
-      <header className="mb-4 mt-4">
-        <h3>{isLogin ? "Log In" : "Sign Up"}</h3>
-      </header>
-      <Form onSubmit={submitHandler}>
-        <FormGroup className="mb-3">
-          <FormLabel>Email</FormLabel>
-          <FormControl ref={enteredEmail} type="email"></FormControl>
-        </FormGroup>
-        <FormGroup className="mb-3">
-          <FormLabel>Password</FormLabel>
-          <FormControl ref={enteredPassword} type="password"></FormControl>
-        </FormGroup>
-        <Button className="mb-3" type="submit" variant="outline-primary">
-          {isLogin ? "Log In" : "Sign Up"}
-        </Button>
-      </Form>
-      {!isLoading && (
-        <Button
-          size="sm"
-          onClick={() => setLogin(!isLogin)}
-          variant="outline-secondary"
-        >
-          {isLogin ? "Create new account" : "Log in existing account"}
-        </Button>
-      )}
-      {isLoading && <p>Sending Request...</p>}
-    </Container>
+    <div className="container-fluid text-center">
+      <div className="row">
+        <div className="col-md-5 col-10 mx-auto">
+          <div className="card mt-5">
+            <h3 className="card-header">{isLogin ? "Log In" : "Sign Up"}</h3>
+            <div className="card-body">
+              <form onSubmit={submitHandler}>
+                <div className="mb-3">
+                  <label className="form-label">Email</label>
+                  <input
+                    placeholder="Email"
+                    className="form-control"
+                    ref={enteredEmail}
+                    type="email"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label className="form-label">Password</label>
+                  <input
+                    placeholder="Password"
+                    className="form-control"
+                    ref={enteredPassword}
+                    type="Password"
+                  />
+                </div>
+                <button className="btn btn-outline-primary" type="submit">
+                  {isLogin ? "Log In" : "Sign Up"}
+                </button>
+              </form>
+            </div>
+          </div>
+          {!isLoading && (
+            <button
+              className="btn btn-outline-secondary btn-sm mt-3"
+              onClick={() => setLogin(!isLogin)}
+            >
+              {isLogin ? "Create new account" : "Log in existing account"}
+            </button>
+          )}
+          {isLoading && <p>Sending Request...</p>}
+        </div>
+      </div>
+    </div>
   );
 };
 

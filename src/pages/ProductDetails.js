@@ -5,8 +5,8 @@ import "./ProductDet.css";
 const ProductDetails = () => {
   const cartCtx = useContext(CartContext);
 
-  let image_1 = cartCtx.extraImages[0];
-  let image_2 = cartCtx.extraImages[1];
+  let image_1 = cartCtx.extraImages;
+  let image_2 = cartCtx.extraImages;
 
   return (
     <>

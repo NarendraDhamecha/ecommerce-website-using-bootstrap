@@ -8,9 +8,9 @@ const About = () => {
         <header>
           <h1>About</h1>
         </header>
-        <Col className="col-6 offset-3">
+        <div className="col-6 mx-auto">
           <LoremIpsum p={1} />
-        </Col>
+        </div>
       </Container>
   );
 };

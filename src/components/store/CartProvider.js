@@ -5,7 +5,7 @@ import AuthContext from "./auth-contex";
 
 const CartProvider = (props) => {
   const [items, updateItems] = useState([]);
-  const [extraImages, setExtraImages] = useState([]);
+  const [extraImages, setExtraImages] = useState();
   const authCtx = useContext(AuthContext);
 
   const updateItemsOnRefresh = (items) => {
@@ -28,9 +28,10 @@ const CartProvider = (props) => {
       };
 
       const existingId = updatedItems[existingIndex]._id;
+      
 
        await fetch(
-        `https://crudcrud.com/api/69738477188d47eb803abc4e0fae3686/cart${authCtx.email}/${existingId}`,
+        `https://ecommerce-website-8dfa0-default-rtdb.firebaseio.com/cart${authCtx.email}/${existingId}.json`,
         {
           headers: { "Content-Type": "application/json" },
           method: "PUT",
@@ -47,7 +48,7 @@ const CartProvider = (props) => {
     } else {
      
       const details = {
-        id: item.id,
+        id : item.id,
         title: item.title,
         price: item.price,
         quantity: item.quantity,
@@ -55,7 +56,7 @@ const CartProvider = (props) => {
       }
 
       const res = await fetch(
-        `https://crudcrud.com/api/69738477188d47eb803abc4e0fae3686/cart${authCtx.email}`,
+        `https://ecommerce-website-8dfa0-default-rtdb.firebaseio.com/cart${authCtx.email}.json`,
         {
           headers: { "Content-Type": "application/json" },
           method: "POST",
@@ -64,13 +65,22 @@ const CartProvider = (props) => {
       );
 
       const data = await res.json();
-      updateItems([...items, data]);
+
+      const cartItem = {
+        _id: data.name,
+        ...details
+      }
+      
+      if(res.ok){
+        updateItems([...items, cartItem]);
+      }
+      
     }
   };
 
   const removeItemHandler = async (id) => {
     await fetch(
-      `https://crudcrud.com/api/69738477188d47eb803abc4e0fae3686/cart${authCtx.email}/${id}`,
+      `https://ecommerce-website-8dfa0-default-rtdb.firebaseio.com/cart${authCtx.email}/${id}.json`,
       { method: "DELETE" }
     );
     updateItems((prevItems) => {

@@ -30,7 +30,7 @@ const ContactUs = () => {
           method: "POST",
           body: JSON.stringify(userDetails),
           headers: {
-            "content-type": "user-details-app",
+            "content-type": "application/json",
           },
         }
       );

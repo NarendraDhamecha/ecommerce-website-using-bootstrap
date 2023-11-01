@@ -7,13 +7,13 @@ const ItemList = (props) => {
   const history = useHistory();
   let title = props.title
   
-  if(title.length >= 23){
-    title = title.substr(0,22);
+  if(title.length >= 22){
+    title = title.substr(0,20);
   }
 
 
   const onImageClickHandler = () => {
-    cartCtx.addExtraImage(props.images);
+    cartCtx.addExtraImage(props.image);
     history.push('/store/details');
   }
 

@@ -27,8 +27,8 @@ const Cart = (props) => {
           </div>
           <CartItems items={cartCtx.items} />
           <div className="total_amount">
-            <span>{`Total: $${totalAmount}`}</span>
-            <span><button className="btn btn-success btn-sm">Order</button></span>
+            <span>{`Total: $${Math.round(totalAmount)}`}</span>
+            <span><button className="btn btn-success btn-sm" onClick={() => alert('Thank You For Shopping With Us')}>Order</button></span>
           </div>
         </ModalBody>
       </Modal.Dialog>

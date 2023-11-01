@@ -5,16 +5,17 @@ import "./CartItems.css";
 
 const CartItems = (props) => {
   const cartCtx = useContext(CartContext);
+  
 
   return (
     <ListGroup variant="flush" className="list">
       {props.items.map((item) => {
         return (
-          <ListGroupItem key={item.id}>
+          <ListGroupItem key={item._id}>
             <Row>
               <Col>
                 <img className="img-thumbnail" src={item.imageUrl} alt="..."/>
-                {item.title}
+                {item.title.substr(0,20)}
               </Col>
               <Col>{`$${item.price}`}</Col>
               <Col>{`x${item.quantity}`}</Col>

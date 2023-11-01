@@ -11,7 +11,7 @@ const Products = () => {
   const [productsArr, setProductsArr] = useState([])
 
   useEffect(() => {
-    fetch(`https://api.escuelajs.co/api/v1/products`)
+    fetch(`https://fakestoreapi.com/products`)
     .then(res => res.json())
     .then(data => {
       let temp = [];
@@ -26,9 +26,15 @@ const Products = () => {
   },[])
 
   useEffect(() => {
-    fetch(`https://crudcrud.com/api/69738477188d47eb803abc4e0fae3686/cart${authCtx.email}`)
+    fetch(`https://ecommerce-website-8dfa0-default-rtdb.firebaseio.com/cart${authCtx.email}.json`)
     .then(res =>  res.json())
-    .then(data => cartCxt.updateAfterRefresh(data))
+    .then(data => {
+      let temp = [];
+      for(let key in data){
+        temp.push({_id: key, ...data[key]});;
+      }
+      cartCxt.updateAfterRefresh(temp)
+    })
   },[])
 
   return (
@@ -39,14 +45,14 @@ const Products = () => {
                 return (
                   <ItemList
                     key={item.id}
-                    img={item.images[0]}
+                    img={item.image}
                     title={item.title}
                     price={item.price}
                     onClick={cartCxt.addItem}
                     id={item.id}
                     quantity={item.quantity}
                     path={item.path}
-                    images={item.images}
+                    image={item.image}
                   />
                 );
               })}
